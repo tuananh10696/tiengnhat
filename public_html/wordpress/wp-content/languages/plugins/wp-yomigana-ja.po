@@ -1,0 +1,142 @@
+# Translation of Plugins - WP-Yomigana - Stable (latest release) in Japanese
+# This file is distributed under the same license as the Plugins - WP-Yomigana - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-03-14 18:35:19+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: ja_JP\n"
+"Project-Id-Version: Plugins - WP-Yomigana - Stable (latest release)\n"
+
+#. Author URI of the plugin
+msgid "https://takahashifumiki.com"
+msgstr "https://takahashifumiki.com"
+
+#. Author of the plugin
+msgid "Takahashi Fumiki"
+msgstr "高橋文樹"
+
+#. Description of the plugin
+msgid "You can enter ruby tag in visual editor."
+msgstr "ビジュアルエディターでrubyタグを入力できます。"
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/wp-yomigana/"
+msgstr "https://wordpress.org/plugins/wp-yomigana/"
+
+#. Plugin Name of the plugin
+msgid "WP-Yomigana"
+msgstr "WP-Yomigana"
+
+#. translators: %s is file path.
+#: wp-yomigana.php:57
+msgid "WP-Yomigana's auto load file %s is not found."
+msgstr "WP-Yomigana の オートロードファイル %s が見つかりません。"
+
+#. translators: %1$s is requires PHP version, %2$s is current version.
+#: wp-yomigana.php:54
+msgid "WP-Yomigana requires PHP %1$s and later, but your PHP is %2$s"
+msgstr "WP-Yomigana は PHP %1$s 以上が必須ですが、ご利用のPHPは %2$s です"
+
+#: templates/setting.php:55
+msgid "Below are examples of extended tags. Style are depends on your theme."
+msgstr "以下は追加されたタグの例です。スタイルはあなたのテーマに依存します。"
+
+#: templates/setting.php:52
+msgid "Example"
+msgstr "例"
+
+#: templates/setting.php:34
+msgid "Priority"
+msgstr "優先順位"
+
+#: templates/setting.php:29
+msgid "Display in row #%d"
+msgstr "%d行目に表示"
+
+#: templates/setting.php:23
+msgid "Do not display"
+msgstr "表示しない"
+
+#: templates/setting.php:14
+msgid "Button of %s tag"
+msgstr "%sタグのボタン"
+
+#: templates/ruby.php:9
+msgid "Parent String"
+msgstr "親文字"
+
+#: templates/ruby.php:6
+msgid "Enter ruby annotation."
+msgstr "ルビを入力してください。"
+
+#: templates/q.php:14
+msgid "Source / URL"
+msgstr "引用元 / URL"
+
+#: templates/q.php:8
+msgid "Citation"
+msgstr "引用文"
+
+#: templates/q.php:5
+msgid "Enter source of citation. If not set, cite attribute will be empty."
+msgstr "引用元を入力してください。設定しない場合、cite属性は空になります。"
+
+#: src/Hametuha/Yomigana/Bootstrap.php:105
+msgid "Delete"
+msgstr "削除"
+
+#: src/Hametuha/Yomigana/Bootstrap.php:104
+msgid "OK"
+msgstr "OK"
+
+#: src/Hametuha/Yomigana/Bootstrap.php:103
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: src/Hametuha/Yomigana/Bootstrap.php:100 templates/ruby.php:15
+msgid "Ruby"
+msgstr "ルビ"
+
+#: src/Hametuha/Yomigana/Bootstrap.php:99
+msgid "Cite"
+msgstr "引用元"
+
+#: src/Hametuha/Yomigana/Bootstrap.php:98
+msgid "Annotation"
+msgstr "注釈"
+
+#: src/Hametuha/Yomigana/Bootstrap.php:96
+msgid "Inline Quote"
+msgstr "インライン引用"
+
+#: src/Hametuha/Yomigana/Bootstrap.php:95
+msgid "Switch term and definition"
+msgstr "用語と定義を切り替え"
+
+#: src/Hametuha/Yomigana/Bootstrap.php:94
+msgid "Apply / Strip"
+msgstr "適用 / 解除"
+
+#: src/Hametuha/Yomigana/Bootstrap.php:93
+msgid "Definition List"
+msgstr "定義リスト"
+
+#: src/Hametuha/Yomigana/Admin.php:88
+msgid "Setting"
+msgstr "設定"
+
+#: src/Hametuha/Yomigana/Admin.php:66 templates/setting.php:6
+msgid "Ruby Setting"
+msgstr "ルビ設定"
+
+#: src/Hametuha/Yomigana/Admin.php:66
+msgid "WP-Yomigana Setting"
+msgstr "WP-Yomigana設定"
+
+#: src/Hametuha/Yomigana/Admin.php:48
+msgid "Option has been updated."
+msgstr "オプションが更新されました。"

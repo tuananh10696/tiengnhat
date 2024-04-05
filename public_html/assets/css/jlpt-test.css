@@ -1,0 +1,136 @@
+.container>p {
+    font-size: 32px;
+}
+
+.question {
+    width: 100%;
+    padding-left: 18px;
+}
+
+.options {
+    position: relative;
+    padding-left: 40px;
+}
+
+.radio-parent-div label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.options input {
+    display: none;
+    opacity: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    height: 21px;
+    width: 21px;
+    border: 1px solid #8c7070;
+    border-radius: 50%;
+}
+
+.options input:checked~.checkmark:after {
+    display: block;
+}
+
+
+
+.options input[type="radio"]:checked~.checkmark {
+    background: #21bf73;
+    transition: 300ms ease-in-out 0s;
+}
+
+.options input[type="radio"]:checked~.checkmark:after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-primary {
+    background-color: #555;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+.btn-primary:hover {
+    background-color: #21bf73;
+    border: 1px solid #21bf73;
+}
+
+.btn-success {
+    padding: 5px 25px;
+    background-color: #21bf73;
+}
+
+.question-title {
+    font-size: 17px;
+    line-height: 1.5;
+    margin-top: 20px;
+    color: #000000;
+    font-weight: 545;
+}
+
+.lb-text {
+    color: #574646;
+}
+
+.bg-qs {
+    background-color: #f4f6f8ab !important;
+    border-radius: 15px;
+}
+
+.mt-sm-5.my-1 {
+    margin-left: 12px !important;
+}
+
+.center {
+    text-align: center;
+}
+
+.mg-top-20 {
+    margin-top: 20px;
+}
+
+.mg-top-40 {
+    margin-top: 40px;
+}
+
+.h5-size {
+    font-size: 17px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #262121;
+}
+
+.bg-cl-green {
+    background-color: #21bf73;
+}
+
+.d-flex.align-items-center.pt-3 {
+    display: flex;
+    justify-content: center;
+}
+
+@media(max-width:576px) {
+    .question {
+        width: 100%;
+        /* word-spacing: 2px; */
+        padding-left: 0;
+    }
+}
+
+
+.one-line {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.explain {
+    display: none;
+    background-color: #fff4e7e3;
+    padding: 10px;
+}

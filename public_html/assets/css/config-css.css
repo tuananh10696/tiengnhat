@@ -1,0 +1,19 @@
+.has-text-align-center {
+    text-align: center;
+}
+
+p {
+    color: #14181c;
+}
+
+.btn-active {
+    background-color: #21bf73 !important;
+}
+
+.bg-none {
+    background-color: transparent !important;
+}
+
+.display-none {
+    display: none;
+}
