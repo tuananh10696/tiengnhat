@@ -21,7 +21,7 @@ get_header(null, ['head' => $head]);
 							<h4 class="mb-4 center">JLPT N1 2023/7</h4>
 							<div class="row g-2" id="jlpt-test-info">
 								<div class="col-12">
-									<a href="?positon=moji#moji" class="btn btn-light w-100 rounded text-uppercase text-dark py-3">文字－語彙</a>
+									<a href="?positon=moji" class="btn btn-light w-100 rounded text-uppercase text-dark py-3">文字－語彙</a>
 								</div>
 								<div class="col-12">
 									<a href="?positon=bunpou" class="btn btn-light w-100 rounded text-uppercase text-dark py-3">文法 - 12/20</a>
@@ -54,7 +54,7 @@ get_header(null, ['head' => $head]);
 								<div class="modal-content">
 									<div class="modal-header">
 										<h5 class="modal-title" id="exampleModalCenterTitle">Xác Nhận</h5>
-										a <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
 									<div class="modal-body">
 										Bạn có muốn nộp bài bà chấm điểm bây giờ không?
@@ -66,6 +66,8 @@ get_header(null, ['head' => $head]);
 								</div>
 							</div>
 						</div>
+
+
 
 						<!-- Content -->
 						<?php the_content() ?>

@@ -46,7 +46,7 @@
 }
 
 .lzb-preview-server .options input[type="radio"]:checked~.checkmark {
-    background: #21bf73;
+    background: #dbc993;
     transition: 300ms ease-in-out 0s;
 }
 

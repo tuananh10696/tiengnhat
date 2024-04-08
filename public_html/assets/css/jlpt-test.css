@@ -41,7 +41,7 @@
 
 
 .options input[type="radio"]:checked~.checkmark {
-    background: #21bf73;
+    background: #dbc993;
     transition: 300ms ease-in-out 0s;
 }
 
@@ -131,6 +131,15 @@
 
 .explain {
     display: none;
-    background-color: #fff4e7e3;
     padding: 10px;
+}
+
+.false-answer {
+    text-decoration: line-through red;
+    color: rgb(181, 114, 114);
+}
+
+.true-answer {
+    color: #21bf73;
+    font-weight: bold;
 }
