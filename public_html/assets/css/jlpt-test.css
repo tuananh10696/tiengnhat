@@ -143,3 +143,15 @@
     color: #21bf73;
     font-weight: bold;
 }
+
+/*  */
+
+/* Quy tắc CSS chỉ dành cho máy tính bảng và PC */
+@media only screen and (min-width: 990px) {
+    .sticky-on-scroll {
+        position: fixed;
+        width: 25%;
+        max-width: 360px;
+        /* Thêm các thuộc tính CSS khác nếu cần */
+    }
+}

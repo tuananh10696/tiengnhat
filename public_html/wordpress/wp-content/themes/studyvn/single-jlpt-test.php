@@ -17,9 +17,12 @@ get_header(null, ['head' => $head]);
 			<div class="col-lg-4">
 				<div class="row g-4">
 					<div class="col-12">
-						<div class="p-3 rounded border">
+						<div class="p-3 rounded border sticky-on-scroll">
 							<h4 class="mb-4 center">JLPT N1 2023/7</h4>
 							<div class="row g-2" id="jlpt-test-info">
+								<div class="center">
+									<span class="w-100" id="countdown-timer" data-time="120"></span>
+								</div>
 								<div class="col-12">
 									<a href="?positon=moji" class="btn btn-light w-100 rounded text-uppercase text-dark py-3">文字－語彙</a>
 								</div>
@@ -37,9 +40,6 @@ get_header(null, ['head' => $head]);
 								</div>
 							</div>
 						</div>
-						<!-- <div class="col-12">
-                            <a href="#" class="btn btn-light w-100 rounded text-uppercase text-dark py-3">残り時間：65:20</a>
-                        </div> -->
 					</div>
 				</div>
 			</div>
@@ -57,10 +57,11 @@ get_header(null, ['head' => $head]);
 										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
 									<div class="modal-body">
-										Bạn có muốn nộp bài bà chấm điểm bây giờ không?
+
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary bg-none" id="continueBtn">Làm Tiếp</button>
+										<button type="button" class="btn btn-secondary bg-none" id="listen_exercises">Làm Bài Nghe</button>
 										<button type="button" class="btn btn-secondary bg-none" id="submitBtn">Nộp Bài</button>
 									</div>
 								</div>
@@ -72,14 +73,6 @@ get_header(null, ['head' => $head]);
 						<!-- Content -->
 						<?php the_content() ?>
 
-					</div>
-					<div class="d-flex align-items-center pt-3">
-						<div id="prev">
-							<button class="btn btn-primary">前</button>
-						</div>
-						<div class="ml-auto mr-sm-5">
-							<button class="btn btn-success">次</button>
-						</div>
 					</div>
 				</div>
 			</div>

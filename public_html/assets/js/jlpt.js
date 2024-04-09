@@ -1,11 +1,34 @@
 $(document).ready(function () {
 
-    function scrollToPosition(positionValue, headerOffset) {
-        var scrollTop = $('#' + positionValue).offset().top - headerOffset;
-        $('html, body').animate({
-            scrollTop: scrollTop
-        }, 200);
+    window.history.pushState(null, null, null);
+    window.onpopstate = function (e) {
+        window.history.pushState(null, null, null);
+        return false;
     }
+
+
+    //Đếm thời gian làm bài
+    var totalSeconds = parseInt($('#countdown-timer').data('time')) * 60;
+    var intervalId = setInterval(function () {
+        var remainingSeconds = totalSeconds--;
+        var minutes = Math.floor(remainingSeconds / 60);
+        var formattedTime = '時間: ' + minutes + '分';
+        $('#countdown-timer').text(formattedTime);
+        if (totalSeconds === 0) {
+            clearInterval(intervalId);
+            $('.modal-body').text('Đã hết thời gian làm bài viết, hãy làm tiếp bài nghe nhé!');
+            $('#check-jlpt-test').trigger('click');
+        }
+    }, 1000);
+
+
+
+    function scrollToPosition(positionValue, headerOffset) {
+        var $targetElement = $('#' + positionValue);
+        var scrollTop = $targetElement.length > 0 ? $targetElement.offset().top - headerOffset : undefined;
+        if (!isNaN(scrollTop)) $('html, body').animate({ scrollTop: scrollTop }, 200);
+    }
+
 
     // Kiểm tra nếu phần tử có thuộc tính style là "text-decoration: underline;"
     var spans = document.getElementsByTagName("span");
@@ -25,7 +48,7 @@ $(document).ready(function () {
         // Tìm thẻ a có href tương ứng với giá trị của tham số ?positon
         $('#jlpt-test-info a[href="?positon=' + position + '"]').addClass('btn-active');
         let url = window.location.href;
-        scrollToPosition(url.split('=')[1], 90)
+        scrollToPosition(url.split('=')[1], 100)
     }
 
     $('#jlpt-test-info a').click(function (e) {
@@ -36,19 +59,29 @@ $(document).ready(function () {
 
         // Nếu href chứa '?positon=check'
         if (url.includes('?positon=check')) {
-            $('#exampleModalCenter').modal('show'); // Hiển thị modal
+            $('#exampleModalCenter').modal('show');
         } else {
-            // Thay đổi URL trên thanh địa chỉ mà không reload trang
             history.pushState({}, '', url);
-            scrollToPosition(url.split('=')[1], 90)
+            // Thay đổi tiêu đề trang
+            document.title = 'New Page Title';
 
+            // Thay đổi meta description
+            const metaDescription = document.querySelector('meta[name="description"]');
+            metaDescription.content = 'New page description';
+            scrollToPosition(url.split('=')[1], 100)
         }
     });
 
     // Xử lý khi modal được hiển thị
     $('#exampleModalCenter').on('show.bs.modal', function () {
+        $('.modal-body').text('Bạn có muốn nộp bài và chấm điểm bây giờ không?');
         $('#continueBtn').click(function () {
             $('#exampleModalCenter').modal('hide');
+        });
+
+        $('#listen_exercises').click(function () {
+            $('#exampleModalCenter').modal('hide');
+            scrollToPosition('cyoukai', 100)
         });
 
         $('#submitBtn').click(function () {
@@ -88,8 +121,6 @@ $(document).ready(function () {
                     questionDiv.find('.radio-parent-div label input[value="' + trueAnswerValue + '"]').parent().addClass('true-answer');
                 }
             });
-
-
         });
     });
 

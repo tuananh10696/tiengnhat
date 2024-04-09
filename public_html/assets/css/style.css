@@ -331,7 +331,7 @@
 }
 
 .populer-news .tab-class .nav-item a.active {
-    background: var(--bs-primary) !important;
+    background: #c3ddff !important
 }
 
 .lifestyle .lifestyle-item {
