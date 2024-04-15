@@ -174,7 +174,7 @@
 <!-- Template Javascript -->
 <script src="/assets/js/main.js"></script>
 <script src="/assets/js/config-js.js"></script>
-<?= implode('', $head['_script']) ?>
+<?= @implode('', $head['_script']) ?>
 
 <?php wp_footer(); ?>
 

@@ -134,17 +134,7 @@ function cdp_vars($hideTT = false, $cdp_plug_url = 'x', $post_id = false, $paren
     <img src="<?php echo $cdp_plug_url ?>/assets/imgs/copy.png" alt="<?php _e('Successfull copy image', 'copy-delete-posts'); ?>">
   </div>
   <?php do_action('cdp_notices_special'); ?>
-  <div class="cdp-copy-loader-overlay" style="opacity: 0">
-    <div class="cdp-text-overlay">
-      <h1 style="color: white; font-size: 25px;"><?php _e('Please wait, copying in progress...', 'copy-delete-posts'); ?></h1>
-      <p>
-        <?php _e('If you’re making a lot of copies it can take a while
-        <br>(up to 5 minutes if you’re on a slow server).', 'copy-delete-posts'); ?>
-      </p>
-      <span><?php _e('Average time is 8 copies per second.', 'copy-delete-posts'); ?></span>
-    </div>
-    <div class="cdp-spinner"></div>
-  </div>
+  
   <input type="text" hidden id="cdp-purl" style="display: none; visibility: hidden;" value="<?php echo $cdp_plug_url ?>">
   <?php if ($hideTT == true): ?>
   <input type="text" hidden id="cdp-hideTT" style="display: none; visibility: hidden;" value="true">

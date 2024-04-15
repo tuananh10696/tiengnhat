@@ -110,10 +110,10 @@ function wp_enqueue_block_template_skip_link() {
 	global $_wp_current_template_content;
 
 	// Back-compat for plugins that disable functionality by unhooking this action.
-	if ( ! has_action( 'wp_footer', 'the_block_template_skip_link' ) ) {
+	if ( ! has_action( 'wp_footer', 'wp_enqueue_block_template_skip_link' ) ) {
 		return;
 	}
-	remove_action( 'wp_footer', 'the_block_template_skip_link' );
+	remove_action( 'wp_footer', 'wp_enqueue_block_template_skip_link' );
 
 	// Early exit if not a block theme.
 	if ( ! current_theme_supports( 'block-templates' ) ) {

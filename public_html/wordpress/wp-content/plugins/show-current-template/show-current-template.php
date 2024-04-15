@@ -43,7 +43,7 @@ class Show_Template_File_Name {
 	public $debug_info = array();
 
 	public function __construct() {
-		add_action( 'wp_footer', array( $this, 'get_included_files_at_footr' ) );
+		// add_action( 'wp_footer', array( $this, 'get_included_files_at_footr' ) );
 
 		add_action( 'admin_bar_menu', array( &$this, 'show_template_file_name_on_top' ), 9999 );
 		add_action( 'wp_enqueue_scripts', array( &$this, 'add_current_template_stylesheet' ), 9999 );
@@ -158,35 +158,35 @@ class Show_Template_File_Name {
 		}
 	}
 
-	public function get_included_files_at_footr() {
-		if ( is_admin() || ! is_super_admin() || wp_is_block_theme() ) {
-			return;
-		}
+	// public function get_included_files_at_footr() {
+	// 	if ( is_admin() || ! is_super_admin() || wp_is_block_theme() ) {
+	// 		return;
+	// 	}
 
-		$included_files = get_included_files();
-		global $template;
+	// 	$included_files = get_included_files();
+	// 	global $template;
 
-		$template_relative_path = str_replace( ABSPATH . 'wp-content/', '', $template );
+	// 	$template_relative_path = str_replace( ABSPATH . 'wp-content/', '', $template );
 
-		sort( $included_files );
-		$included_files_list = '';
-		foreach ( $included_files as $filename ) {
-			if ( strstr( $filename, 'themes' . DIRECTORY_SEPARATOR ) ) {
-				$filepath = strstr( $filename, 'themes' );
-				if ( $template_relative_path === $filepath ) {
-					$included_files_list .= '';
-				} else {
-					$included_files_list .= '<li>' . "$filepath" . '</li>';
-				}
-			}
-		}
-		$included_files_format = '<ol id="included-files-fie-on-wp-footer">'
-				. '%s'
-				. '</ol>';
-		$included_files_html   = sprintf( $included_files_format, $included_files_list );
+	// 	sort( $included_files );
+	// 	$included_files_list = '';
+	// 	foreach ( $included_files as $filename ) {
+	// 		if ( strstr( $filename, 'themes' . DIRECTORY_SEPARATOR ) ) {
+	// 			$filepath = strstr( $filename, 'themes' );
+	// 			if ( $template_relative_path === $filepath ) {
+	// 				$included_files_list .= '';
+	// 			} else {
+	// 				$included_files_list .= '<li>' . "$filepath" . '</li>';
+	// 			}
+	// 		}
+	// 	}
+	// 	$included_files_format = '<ol id="included-files-fie-on-wp-footer">'
+	// 			. '%s'
+	// 			. '</ol>';
+	// 	$included_files_html   = sprintf( $included_files_format, $included_files_list );
 
-		echo wp_kses_post( $included_files_html );
-	}
+	// 	// echo wp_kses_post( $included_files_html );
+	// }
 
 	public function add_current_template_stylesheet() {
 		if ( is_admin() || ! is_super_admin() ) {

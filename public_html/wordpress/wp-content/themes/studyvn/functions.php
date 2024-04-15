@@ -29,6 +29,8 @@ function disable_specific_blocks($allowed_block_types, $post)
             "lazyblock/imgcontentright",
             "lazyblock/schedule",
             "lazyblock/wakucontent",
+            "lazyblock/framed",
+            "lazyblock/content-and-image",
             'flexible-table-block/table'
         );
     }
@@ -47,6 +49,8 @@ function my_enqueue_edit_screen_css($hook)
     global $post_type;
     if (in_array($post_type, ['jlpt-test'])) {
         wp_enqueue_style('jlpt-test', get_stylesheet_directory_uri() . '/inc/assets/jlpt-test.css');
+    } elseif (in_array($post_type, ['blog'])) {
+        wp_enqueue_style('blog', get_stylesheet_directory_uri() . '/inc/assets/blog-edit.css');
     }
 }
 add_action('admin_enqueue_scripts', 'my_enqueue_edit_screen_css');
@@ -164,4 +168,72 @@ function get_list_taxomomy($taxonomy, $parent = 0, $orderby = 'menu_order', $sor
         'order'         => $sort,
 
     ]);
+}
+
+
+function get_current_link()
+{
+    return (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+}
+
+
+function pagination($datas, $url)
+{
+    $total_pages = $datas->max_num_pages;
+
+    if ($total_pages > 1) {
+        $current_page = max(1, get_query_var('paged'));
+        $pages_to_show = 3;
+
+        // Calculate pages
+        $start_page = max(1, $current_page - floor($pages_to_show / 2));
+        $end_page = min($total_pages, $start_page + $pages_to_show - 1);
+
+        $now_page = 1;
+        if (@$_GET['page']) {
+            $now_page = $_GET['page'];
+            if (($total_pages - $_GET['page']) > 2) {
+                $start_page =  $now_page > 1 ? $now_page - 1 : 1;
+                $end_page = $now_page + ($now_page > 1 ? 1 : 2);
+            } else {
+                $start_page = $total_pages - 3;
+                $end_page = $total_pages;
+            }
+        }
+
+        // Multiple conditions
+        $s = '';
+        if (isset($_GET['kw']) || isset($_GET['category']) || isset($_GET['kw_search']) || (isset($_GET['s']) && $_GET['s'] != '')) {
+            $s = '&' . preg_replace('/page=[0-9]+&/', '', $_SERVER['QUERY_STRING']);
+        }
+
+        // Display pagination
+        echo '<ul class="pagination justify-content-center">';
+        if ($now_page != 1) echo '<li class="page-item"><a class="page-link"  href="/' . $url . '?page=' . ($now_page - 1) . $s . '" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>';
+        for ($i = $start_page; $i <= intval($end_page); $i++) {
+            if ($i > 0) {
+                $active = ($i == $now_page) ? 'active' : '';
+                echo '<li class="page-item ' . $active . '"><a class="page-link" href="/' . $url . '?page=' . $i  . $s . '">' . intval($i) . '</a></li>';
+            }
+        }
+
+        // If more than 3 pages
+        if ($end_page < $total_pages) {
+            echo '  <li class="page-item"><span class="paginationList__item dot en">...</span></li>
+            <li class="page-item"><a class="page-link" href="/' . $url . '?page=' . $total_pages . $s . '">' . $total_pages . '</a></li>';
+        }
+
+        if ($now_page !=  intval($total_pages)) echo ' <li class="page-item"><a class="page-link"  href="/' . $url . '?page=' . ($now_page + 1) . $s . '" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>';
+        echo '</ul>';
+    }
+}
+
+
+function check_img($ip_name)
+{
+    $img = false;
+    if (isset($ip_name) && $ip_name != '') {
+        $img = $ip_name;
+    }
+    return $img;
 }

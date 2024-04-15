@@ -159,7 +159,7 @@
 .navbar .navbar-nav .nav-link {
     padding: 10px 15px;
     font-weight: 400;
-    font-family: 'Fredoka', sans-serif;
+    font-family: "Noto Sans JP";
     font-size: 16px;
     transition: .5s;
 }
@@ -186,7 +186,7 @@
         visibility: hidden;
         top: 100%;
         font-weight: 400;
-        font-family: 'Fredoka', sans-serif;
+        font-family: "Noto Sans JP";
         transform: rotateX(-75deg);
         transform-origin: 0% 0%;
         border: 0;
@@ -196,7 +196,7 @@
 }
 
 .dropdown .dropdown-menu a:hover {
-    background: var(--bs-secondary);
+    background: #c3ddff;
     color: var(--bs-primary);
 }
 

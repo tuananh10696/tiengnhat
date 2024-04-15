@@ -11,10 +11,9 @@
     <meta content="" name="description">
 
     <!-- Google Web Fonts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
     <!-- Icon Font Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -26,9 +25,10 @@
 
     <!-- Template Stylesheet -->
     <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/css/all.css" rel="stylesheet">
     <link href="/assets/css/config-css.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <?= implode('', $head['_css']) ?>
+    <?= @implode('', $head['_css']) ?>
 </head>
 
 <body>
@@ -82,40 +82,64 @@
             <div class="container px-0">
                 <nav class="navbar navbar-light navbar-expand-xl">
                     <a href="index.html" class="navbar-brand mt-3">
-                        <p class="text-primary display-6 mb-2" style="line-height: 0;">Newsers</p>
-                        <small class="text-body fw-normal" style="letter-spacing: 12px;">Nespaper</small>
+                        <p class="text-primary display-6 mb-2" style="line-height: 0;">daisuki</p>
+                        <small class="text-body fw-normal" style="letter-spacing: 12px;">buituananh</small>
                     </a>
                     <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars text-primary"></span>
                     </button>
                     <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
                         <div class="navbar-nav mx-auto border-top">
-                            <a href="index.html" class="nav-item nav-link">Home</a>
-                            <a href="detail-page.html" class="nav-item nav-link active">Detail Page</a>
-                            <a href="404.html" class="nav-item nav-link">404 Page</a>
+                            <a href="detail-page.html" class="nav-item nav-link">TIN TỨC</a>
+                            <a href="detail-page.html" class="nav-item nav-link">BLOG</a>
+                            <a href="detail-page.html" class="nav-item nav-link">LẬP TRÌNH</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dropdown</a>
+                                <a href="/jlpt-test?category=JLPT%20N1" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">LUYỆN THI JLPT</a>
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                    <a href="#" class="dropdown-item">Dropdown 1</a>
-                                    <a href="#" class="dropdown-item">Dropdown 2</a>
-                                    <a href="#" class="dropdown-item">Dropdown 3</a>
-                                    <a href="#" class="dropdown-item">Dropdown 4</a>
+                                    <a href="/jlpt-test?category=JLPT%20N1" class="dropdown-item">JLPT N1</a>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <a href="/jlpt-test?category=JLPT%20N2" class="dropdown-item">JLPT N2</a>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <a href="/jlpt-test?category=JLPT%20N3" class="dropdown-item">JLPT N3</a>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <a href="/jlpt-test?category=JLPT%20N4" class="dropdown-item">JLPT N4</a>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <a href="/jlpt-test?category=JLPT%20N5" class="dropdown-item">JLPT N5</a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact Us</a>
-                        </div>
-                        <div class="d-flex flex-nowrap border-top pt-3 pt-xl-0">
-                            <div class="d-flex">
-                                <img src="/img/weather-icon.png" class="img-fluid w-100 me-2" alt="">
-                                <div class="d-flex align-items-center">
-                                    <strong class="fs-4 text-secondary">31°C</strong>
-                                    <div class="d-flex flex-column ms-2" style="width: 150px;">
-                                        <span class="text-body">NEW YORK,</span>
-                                        <small>Mon. 10 jun 2024</small>
-                                    </div>
+                            <a href="detail-page.html" class="nav-item nav-link">KỸ NĂNG TÌM VIỆC</a>
+                            <a href="contact.html" class="nav-item nav-link me-3">LIÊN HỆ</a>
+                            <div class="d-flex flex-nowrap border-top pt-3 pt-xl-0 me-5">
+                                <button class="btn-search btn border border-primary btn-md-square rounded-circle bg-white my-auto" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
+                            </div>
+
+                            <div class="nav-item dropdown pt-3 pt-xl-0 me-3">
+                                <a href="#" class="acc-bgcl border border-primary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="https://github.com/mdo.png" alt="mdo" width="44" height="44" class="rounded-circle">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                                <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                    <a href="/jlpt-test?category=JLPT%20N1" class="dropdown-item">Viết Bài Chia Sẻ</a>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <a href="/jlpt-test?category=JLPT%20N2" class="dropdown-item">Thông Tin Cá Nhân</a>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <a href="/jlpt-test?category=JLPT%20N4" class="dropdown-item">Đăng Xuất</a>
                                 </div>
                             </div>
-                            <button class="btn-search btn border border-primary btn-md-square rounded-circle bg-white my-auto" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
+
+
                         </div>
                     </div>
                 </nav>
@@ -143,3 +167,4 @@
         </div>
     </div>
     <!-- Modal Search End -->
+    <!-- hkKcU5Xsfcq#Vr3 -->

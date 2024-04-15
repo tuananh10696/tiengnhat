@@ -1,0 +1,30 @@
+.cs-items-center {
+    display: contents;
+    align-items: center;
+}
+
+.acc-bgcl {
+    background-color: #fff;
+    border-radius: 20px;
+    padding-right: 19px;
+}
+
+.cs-txt-and-img .cs-img-left {
+    float: left;
+    margin-right: 20px;
+    max-width: 396px;
+    width: 50vw;
+}
+
+.cs-txt-and-img .cs-img-right {
+    float: right;
+    margin-left: 20px;
+    max-width: 396px;
+    width: 50vw;
+}
+
+.cs-txt-and-img img {
+    height: auto;
+    width: 100%;
+}
+
