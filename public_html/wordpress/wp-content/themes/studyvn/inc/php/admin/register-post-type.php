@@ -65,7 +65,7 @@ register_post_type(
         'hierarchical'  => true,
         'has_archive'   => true,
         'show_in_rest'  => true,
-        'supports' => ['title', 'editor'],
+        'supports' => ['title', 'editor', 'thumbnail'],
         'menu_icon' => 'dashicons-share'
     )
 );
