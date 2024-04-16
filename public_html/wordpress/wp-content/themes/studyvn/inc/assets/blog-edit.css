@@ -76,3 +76,9 @@
     height: auto;
     width: 100%;
 }
+
+/* 抜粋 */
+.editor-post-excerpt a,
+.editor-post-excerpt label{
+    display: none;
+}

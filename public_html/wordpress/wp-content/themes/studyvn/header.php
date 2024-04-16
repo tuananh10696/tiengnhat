@@ -81,8 +81,8 @@
         <div class="container-fluid bg-light">
             <div class="container px-0">
                 <nav class="navbar navbar-light navbar-expand-xl">
-                    <a href="index.html" class="navbar-brand mt-3">
-                        <p class="text-primary display-6 mb-2" style="line-height: 0;">daisuki</p>
+                    <a href="/" class="navbar-brand mt-3">
+                        <p class="text-primary display-6 mb-2" style="line-height: 0;">daisukii</p>
                         <small class="text-body fw-normal" style="letter-spacing: 12px;">buituananh</small>
                     </a>
                     <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -91,8 +91,7 @@
                     <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
                         <div class="navbar-nav mx-auto border-top">
                             <a href="detail-page.html" class="nav-item nav-link">TIN TỨC</a>
-                            <a href="detail-page.html" class="nav-item nav-link">BLOG</a>
-                            <a href="detail-page.html" class="nav-item nav-link">LẬP TRÌNH</a>
+                            <a href="detail-page.html" class="nav-item nav-link">CHIA SẺ</a>
                             <div class="nav-item dropdown">
                                 <a href="/jlpt-test?category=JLPT%20N1" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">LUYỆN THI JLPT</a>
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">
@@ -115,7 +114,8 @@
                                     <a href="/jlpt-test?category=JLPT%20N5" class="dropdown-item">JLPT N5</a>
                                 </div>
                             </div>
-                            <a href="detail-page.html" class="nav-item nav-link">KỸ NĂNG TÌM VIỆC</a>
+                            <a href="detail-page.html" class="nav-item nav-link">YOUTUBE</a>
+                            <a href="detail-page.html" class="nav-item nav-link">MUA SÁCH</a>
                             <a href="contact.html" class="nav-item nav-link me-3">LIÊN HỆ</a>
                             <div class="d-flex flex-nowrap border-top pt-3 pt-xl-0 me-5">
                                 <button class="btn-search btn border border-primary btn-md-square rounded-circle bg-white my-auto" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>

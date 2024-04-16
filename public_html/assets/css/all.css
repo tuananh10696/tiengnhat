@@ -29,34 +29,79 @@
 }
 
 /*Profile Card 5*/
-.profile-card-5{
-    margin-top:20px;
+.profile-card-5 {
+    margin-top: 20px;
 }
-.profile-card-5 .btn{
-    border-radius:2px;
-    text-transform:uppercase;
-    font-size:12px;
-    padding:7px 20px;
+
+.profile-card-5 .btn {
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 7px 20px;
 }
+
 .profile-card-5 .card-img-block {
     width: 91%;
     margin: 0 auto;
     position: relative;
     top: -20px;
-    
-}
-.profile-card-5 .card-img-block img{
-    border-radius:5px;
-    box-shadow:0 0 10px rgba(0,0,0,0.63);
-}
-.profile-card-5 h5{
-    color:#4E5E30;
-    font-weight:600;
+
 }
 
-.profile-card-5 .btn-primary{
-    background-color:#4E5E30;
-    border-color:#4E5E30;
+.profile-card-5 .card-img-block img {
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
+}
+
+.profile-card-5 h5 {
+    color: #4E5E30;
+    font-weight: 600;
+}
+
+.profile-card-5 .btn-primary {
+    background-color: #4E5E30;
+    border-color: #4E5E30;
+}
+
+.cs-a-btn {
+    padding: 4px;
+    font-weight: 500;
+}
+
+.cs-a-btn span:hover {
+    color: #fff !important;
+}
+
+.sp-blog-list {
+    line-height: 2.0;
+
+}
+
+.cs-tags {
+    color: #bfbfbf;
+    font-style: italic;
+    margin-bottom: -18px;
+}
+
+.cs-tags a {
+    font-size: 13px;
+}
+
+.text-primary.active {
+    background: #1b7dff !important;
+}.text-warning.active {
+    background: #ffc107 !important;
+}.text-success.active {
+    background: #198754 !important;
+}.text-danger.active {
+    background: #dc3545 !important;
+}.text-info.active {
+    background: #0dcaf0 !important;
+}.text-dark.active {
+    background: #6c757d !important;
+}
+.cs-a-btn.active span {
+    color: #fff !important;
 }
 
 @media only screen and (max-width: 600px) {
@@ -65,4 +110,21 @@
         line-height: 1.5;
         padding: 4px;
     }
-  }
+
+    .profile-card-5 h5 {
+        font-size: 16px;
+    }
+
+    p.card-text {
+        font-size: 14px;
+    }
+
+    img.card-img-top {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.m-h-500{
+    max-height: 500px;
+}

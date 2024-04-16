@@ -101,18 +101,22 @@ function getListAll($post_type = null, $limit = 10, $query = [], $get_posts = fa
 
     $tax_query = [];
     foreach ($query as $k => $v) {
-        if (!in_array($k, ['category', 'kw']) || $v == '') continue;
+        if (!in_array($k, ['category', 'kw', 'cate_slug']) || $v == '') continue;
 
 
+        $field = $k == 'cate_slug' ? 'slug' : 'name';
         $taxonomy = $post_type . '_' . $k;
-        $taxonomy = $k == 'category' ? ($post_type . '_cate') : $taxonomy;
-        $taxonomy = $k == 'kw' ? ($post_type . '_tag') : $taxonomy;
+        if (in_array($k, ['cate_slug', 'category'])) {
+            $taxonomy = $post_type . '_cate';
+        } elseif ($k == 'kw') {
+            $taxonomy = $post_type . '_tag';
+        }
 
         $v = (array) $v;
 
         $tax_query[] = [
             'taxonomy' => $taxonomy,
-            'field' => 'name',
+            'field' => $field,
             'terms' => [$v[0]],
             'operator' => 'IN',
             'include_children' => isset($v['include_children']) ? $v['include_children'] : false
@@ -236,4 +240,24 @@ function check_img($ip_name)
         $img = $ip_name;
     }
     return $img;
+}
+
+
+//長いすぎるテキストを切り取る
+function limit_text($text, $limit)
+{
+    if (strlen($text) > $limit) {
+        $text = mb_substr($text, 0, $limit, 'UTF-8') . '…';
+    }
+    return esc_html($text);
+}
+
+
+function get_first_text($id, $limit = 100)
+{
+    // Lấy nội dung đầy đủ của bài viết
+    $content = get_post_field('post_content', $id);
+    $first_txt = wp_strip_all_tags($content);
+    $first_txt = get_the_excerpt($id) != '' ? get_the_excerpt($id) : $first_txt;
+    return limit_text($first_txt, $limit);
 }

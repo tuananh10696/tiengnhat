@@ -59,13 +59,15 @@ register_post_type(
             'all_items' => __('一覧'),
             'edit_item' => __('編集'),
             'featured_image' => _x('画像', 'post'),
+            'set_featured_image'    => __('画像を設定する', '3288-visualive-example'),
+            'remove_featured_image' => __('画像を削除する', '3288-visualive-example'),
         ),
         'label' => 'BLOG',
         'public' => true,
         'hierarchical'  => true,
         'has_archive'   => true,
         'show_in_rest'  => true,
-        'supports' => ['title', 'editor', 'thumbnail'],
+        'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
         'menu_icon' => 'dashicons-share'
     )
 );
@@ -90,7 +92,8 @@ register_taxonomy(
         'show_ui'                   => true,
         'show_in_rest'              => true,
     )
-);register_taxonomy(
+);
+register_taxonomy(
     'blog_tag',
     'blog',
     array(
