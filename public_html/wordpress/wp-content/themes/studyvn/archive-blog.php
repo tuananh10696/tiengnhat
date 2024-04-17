@@ -6,6 +6,7 @@ $post_datas = getListAll('blog', 10, $_GET);
 $popular_post = getListAll('blog', 6, $_GET, '', '', 'post_views', 'DESC');
 $param = (isset($_GET['cate_slug']) && isset($_GET['cate_slug']) != '') ? $_GET['cate_slug'] : false;
 
+dd($param);
 $head = [
 	'head_title' => ['Luyen thi JLPT'],
 	'head_des' => ['bui tuan anh'],
@@ -25,14 +26,15 @@ $color = ['primary', 'warning', 'success', 'danger', 'info', 'dark']
 						<h1 class="mb-4">BLOG</h1>
 						<ul class="nav nav-pills d-inline-flex text-center">
 							<li class="nav-item mb-3">
-								<a class="d-flex py-2 btn btn-outline-dark btn-round me-2 cs-a-btn text-dark <?= $param ? '' : 'active' ?>" href="/blog/">
+								<a style="border-color: #35087e;background-color:<?= $param ? '' : '#e7e7e7' ?>;" class="d-flex py-2 btn btn-round me-2 cs-a-btn text-dark" href="/blog/">
 									<span class="text-dark" style="width: 100px;">ALL</span></a>
 							</li>
 							<?php foreach ($cates as $id => $cate_data) :
-								$active = ($param && $param == $cate_data->slug) ? 'active' : ''; ?>
-								<li class="nav-item mb-3">
-									<a class="d-flex py-2 btn btn-outline-<?= $color[$id] ?> btn-round me-2 cs-a-btn text-<?= $color[$id] . ' ' . $active ?>" href="/blog?cate_slug=<?= $cate_data->slug  ?>">
-										<span class="text-<?= $color[$id] ?>" style="width: 100px;"><?= $cate_data->name ?>
+								$color = get_term_meta($cate_data->term_id, 'cs_color', true);
+								$active = ($param && $param == $cate_data->slug) ? 'style="background-color: ' . $color . '"' : ''; ?>
+								<li class="nav-item mb-3 category-btn">
+									<a class="d-flex py-2 btn btn-round me-2 cs-a-btn" <?= $active ?> style="border-color:<?= $color ?>" href="/blog?cate_slug=<?= $cate_data->slug  ?>">
+										<span style="width: 100px;color:<?= $active != '' ? '#fff' : $color ?>"><?= $cate_data->name ?>
 									</a>
 								</li>
 							<?php endforeach; ?>

@@ -1,5 +1,12 @@
 <?php extract($args); ?>
 
+<div class="cs-container">
+    <a href="" class="cs-button bg-light-yellow">Tin Mới</a>
+    <a href="" class="cs-button bg-light-green">Viết Bài</a>
+    <a href="" class="cs-button bg-light-orange" >Test JLPT</a>
+  </div>
+
+
 <!-- Footer Start -->
 <div class="container-fluid bg-dark footer py-5">
     <div class="container py-5">

@@ -1,130 +1,232 @@
 .cs-items-center {
-    display: contents;
-    align-items: center;
+  display: contents;
+  align-items: center;
 }
 
 .acc-bgcl {
-    background-color: #fff;
-    border-radius: 20px;
-    padding-right: 19px;
+  background-color: #fff;
+  border-radius: 20px;
+  padding-right: 19px;
 }
 
 .cs-txt-and-img .cs-img-left {
-    float: left;
-    margin-right: 20px;
-    max-width: 396px;
-    width: 50vw;
+  float: left;
+  margin-right: 20px;
+  max-width: 396px;
+  width: 50vw;
 }
 
 .cs-txt-and-img .cs-img-right {
-    float: right;
-    margin-left: 20px;
-    max-width: 396px;
-    width: 50vw;
+  float: right;
+  margin-left: 20px;
+  max-width: 396px;
+  width: 50vw;
 }
 
 .cs-txt-and-img img {
-    height: auto;
-    width: 100%;
+  height: auto;
+  width: 100%;
 }
 
 /*Profile Card 5*/
 .profile-card-5 {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .profile-card-5 .btn {
-    border-radius: 2px;
-    text-transform: uppercase;
-    font-size: 12px;
-    padding: 7px 20px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 7px 20px;
 }
 
 .profile-card-5 .card-img-block {
-    width: 91%;
-    margin: 0 auto;
-    position: relative;
-    top: -20px;
+  width: 91%;
+  margin: 0 auto;
+  position: relative;
+  top: -20px;
 
 }
 
 .profile-card-5 .card-img-block img {
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
 }
 
 .profile-card-5 h5 {
-    color: #4E5E30;
-    font-weight: 600;
+  color: #4E5E30;
+  font-weight: 600;
 }
 
 .profile-card-5 .btn-primary {
-    background-color: #4E5E30;
-    border-color: #4E5E30;
+  background-color: #4E5E30;
+  border-color: #4E5E30;
 }
 
 .cs-a-btn {
-    padding: 4px;
-    font-weight: 500;
+  padding: 4px;
+  font-weight: 500;
 }
 
 .cs-a-btn span:hover {
-    color: #fff !important;
+  color: #450ba5 !important;
+  transition: transform .5s;
+  transform: scale(1.2);
 }
 
 .sp-blog-list {
-    line-height: 2.0;
+  line-height: 2.0;
 
 }
 
 .cs-tags {
-    color: #bfbfbf;
-    font-style: italic;
-    margin-bottom: -18px;
+  color: #bfbfbf;
+  font-style: italic;
+  margin-bottom: -18px;
 }
 
 .cs-tags a {
-    font-size: 13px;
+  font-size: 13px;
 }
 
-.text-primary.active {
-    background: #1b7dff !important;
-}.text-warning.active {
-    background: #ffc107 !important;
-}.text-success.active {
-    background: #198754 !important;
-}.text-danger.active {
-    background: #dc3545 !important;
-}.text-info.active {
-    background: #0dcaf0 !important;
-}.text-dark.active {
-    background: #6c757d !important;
+
+.m-h-500 {
+  max-height: 500px;
 }
-.cs-a-btn.active span {
-    color: #fff !important;
+
+.bg-light-green {
+  background-color: #4ab563;
 }
+
+.bg-light-yellow {
+  background-color: #ffcb2f;
+}
+
+.bg-light-orange {
+  background-color: #fea75f;
+}
+
+
+
+/* Cài đặt chung cho nút */
+a.cs-button {
+  display: block;
+  /* Biến nút thành dạng khối */
+  padding: 20px 10px;
+  /* Khoảng cách nội dung */
+  border: none;
+  /* Xóa viền */
+  color: white;
+  /* Màu chữ */
+  cursor: pointer;
+  /* Con trỏ chuột dạng tay */
+  text-align: center;
+  /* Căn giữa chữ */
+  font-size: 16px;
+  /* Kích thước chữ */
+  transition: background-color 0.3s;
+  /* Hiệu ứng chuyển đổi màu nền */
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+  z-index: 999;
+
+}
+
+.cs-container {
+  z-index: 999;
+}
+
+/* Nút khi di chuột qua */
+.cs-button:hover {
+  background-color: #abdee5;
+}
+
+/* Nút cho màn hình PC */
+@media (min-width: 768px) {
+  .cs-container {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    transform: translateY(-50%);
+  }
+
+  a.cs-button {
+    width: 60%;
+    text-align: center;
+    border-radius: 11px 0 0 11px;
+    border: 6px #fff solid;
+    border-right: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .cs-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+  }
+
+  a.cs-button {
+    flex: 1;
+    padding: 10px;
+    border: 3px #fff solid;
+    border-bottom: none;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .1);
+    border-right: none;
+    margin: -1px;
+  }
+
+  .bg-light-yellow {
+    border-left: none !important;
+  }
+
+  .sp-blog-list {
+    width: 50%;
+    line-height: 1.5;
+    padding: 4px;
+  }
+
+  .profile-card-5 h5 {
+    font-size: 16px;
+  }
+
+  p.card-text {
+    font-size: 14px;
+  }
+
+  img.card-img-top {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+
 
 @media only screen and (max-width: 600px) {
-    .sp-blog-list {
-        width: 50%;
-        line-height: 1.5;
-        padding: 4px;
-    }
+  .sp-blog-list {
+    width: 50%;
+    line-height: 1.5;
+    padding: 4px;
+  }
 
-    .profile-card-5 h5 {
-        font-size: 16px;
-    }
+  .profile-card-5 h5 {
+    font-size: 16px;
+  }
 
-    p.card-text {
-        font-size: 14px;
-    }
+  p.card-text {
+    font-size: 14px;
+  }
 
-    img.card-img-top {
-        width: 100%;
-        height: auto;
-    }
-}
-
-.m-h-500{
-    max-height: 500px;
+  img.card-img-top {
+    width: 100%;
+    height: auto;
+  }
 }
