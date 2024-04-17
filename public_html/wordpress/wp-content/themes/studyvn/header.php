@@ -5,10 +5,19 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Newsers - Free HTML Magazine Template</title>
+    <title><?= $head['head_title'][0] ?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="Description" content="<?= $head['head_des'][0] ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="<?= $head['head_des'][0] ?>">
+    <meta property="og:title" content="<?= $head['head_title'][0] ?>">
+    <meta property="og:url" content="https://daisukii.net/">
+    <meta property="og:image" content="https://daisukii.net/ogp.png">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:description" content="<?= $head['head_des'][0] ?>">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,7 +92,7 @@
                 <nav class="navbar navbar-light navbar-expand-xl">
                     <a href="/" class="navbar-brand mt-3">
                         <p class="text-primary display-6 mb-2" style="line-height: 0;">daisukii</p>
-                        <small class="text-body fw-normal" style="letter-spacing: 12px;">buituananh</small>
+                        <!-- <small class="text-body fw-normal" style="letter-spacing: 12px;">buituananh</small> -->
                     </a>
                     <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars text-primary"></span>
@@ -91,7 +100,7 @@
                     <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
                         <div class="navbar-nav mx-auto border-top">
                             <a href="detail-page.html" class="nav-item nav-link">TIN TỨC</a>
-                            <a href="detail-page.html" class="nav-item nav-link">CHIA SẺ</a>
+                            <a href="/" class="nav-item nav-link">CHIA SẺ</a>
                             <div class="nav-item dropdown">
                                 <a href="/jlpt-test?category=JLPT%20N1" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">LUYỆN THI JLPT</a>
                                 <div class="dropdown-menu m-0 bg-secondary rounded-0">

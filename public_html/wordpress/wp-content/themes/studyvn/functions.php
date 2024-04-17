@@ -246,6 +246,11 @@ function check_img($ip_name)
 //長いすぎるテキストを切り取る
 function limit_text($text, $limit)
 {
+    $pattern = '/<p>(.*?)<\/p>/s';
+    preg_match($pattern, $text, $matches);
+    if (isset($matches[1])) {
+        $text = $matches[1];
+    }
     if (strlen($text) > $limit) {
         $text = mb_substr($text, 0, $limit, 'UTF-8') . '…';
     }
@@ -255,9 +260,9 @@ function limit_text($text, $limit)
 
 function get_first_text($id, $limit = 100)
 {
-    // Lấy nội dung đầy đủ của bài viết
-    $content = get_post_field('post_content', $id);
-    $first_txt = wp_strip_all_tags($content);
-    $first_txt = get_the_excerpt($id) != '' ? get_the_excerpt($id) : $first_txt;
+    $content = get_post_field('post_content', $id); // Lấy nội dung đầy đủ của bài viết
+    $ct_2 = get_post_field('post_excerpt', $id); //抜粋の本文
+    $first_txt = $ct_2 != '' ? $ct_2 : $content;
+    $first_txt = wp_strip_all_tags($first_txt);
     return limit_text($first_txt, $limit);
 }

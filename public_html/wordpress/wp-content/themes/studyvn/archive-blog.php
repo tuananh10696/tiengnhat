@@ -2,14 +2,19 @@
 $cates = get_list_taxomomy('blog_cate');
 $tags = get_list_taxomomy('blog_tag');
 
+
+
 $post_datas = getListAll('blog', 10, $_GET);
 $popular_post = getListAll('blog', 6, $_GET, '', '', 'post_views', 'DESC');
 $param = (isset($_GET['cate_slug']) && isset($_GET['cate_slug']) != '') ? $_GET['cate_slug'] : false;
+$param_kw = (isset($_GET['kw']) && isset($_GET['kw']) != '') ? $_GET['kw'] : false;
 
-dd($param);
+// Lấy thông tin của danh mục dựa vào slug
+$head_title = (get_term_by('slug', $param, 'blog_cate'));
+$head_title = $head_title ? $head_title->description : 'Cùng nhau sẻ thông tin và kiến thức cho người Việt ở Nhật';
 $head = [
-	'head_title' => ['Luyen thi JLPT'],
-	'head_des' => ['bui tuan anh'],
+	'head_title' => [$head_title . ' - daisukii.net'],
+	'head_des' => ['Cùng nhau chia sẻ kinh nghiệm, kiến thức về cuộc sống tại Nhật. Cùng nhau học tiếng Nhật'],
 	'_css' => [''],
 	'_script' => ['<script src="/assets/js/jlpt.js"></script>']
 ];
@@ -43,6 +48,7 @@ $color = ['primary', 'warning', 'success', 'danger', 'info', 'dark']
 					<div class="tab-content mb-4">
 						<div id="tab-1" class="tab-pane fade show p-0 active">
 							<div class="bg-light rounded my-4 p-4">
+								<?php if ($param_kw) echo '<h5 class="text-dark d-inline">Bài viết liên quan tới : </h5> <h4 class="d-inline text-primary">#' . $param_kw . '</h4>'; ?>
 								<section>
 									<div class="row">
 
@@ -56,7 +62,7 @@ $color = ['primary', 'warning', 'success', 'danger', 'info', 'dark']
 												<a href="<?= get_permalink($post_data->ID) ?>">
 													<div class="card profile-card-5 h-100">
 														<div class="card-img-block">
-															<img class="card-img-top" src="<?= $img ?>" width="262" height="174" alt="<?= $post_data->post_title ?>">
+															<img class="card-img-top m-h-174" src="<?= $img ?>" alt="<?= $post_data->post_title ?>">
 														</div>
 														<div class="card-body pt-0">
 															<h5 class="card-title"><?= $post_data->post_title ?></h5>

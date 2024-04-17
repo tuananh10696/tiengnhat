@@ -105,170 +105,110 @@ get_header(null, ['head' => $head]);
 
 
 <!-- Main Post Section Start -->
-<div class="container-fluid py-5">
+<div class="container-fluid">
 	<div class="container py-5">
 		<div class="row g-4">
 
 
 			<div class="col-lg-7 col-xl-8 mt-0">
-				<?php foreach ($post_datas->posts as $id => $post_data) :
+				<?php
+				$dts = array_slice($post_datas->posts, 0, 4);
+				foreach ($dts as $id => $post_data) :
 					$img = get_the_post_thumbnail_url($post_data->ID, 'large');
 					$img = $img ? $img : '/assets/img/no_img.png';
-					$post_categories = wp_get_post_terms($post_data->ID, $post_data->post_type . '_cate');
-					$post_tags = wp_get_post_terms($post_data->ID, $post_data->post_type . '_cate');
-					if (in_array($id, [0, 1, 2])) :
-						if ($id == 0) : ?>
-							<div class="position-relative overflow-hidden rounded">
-								<img src="<?= $img ?>" class="img-fluid rounded img-zoomin w-100 m-h-500" alt="<?= $post_data->post_title ?>">
-								<div class="d-flex justify-content-center px-4 position-absolute flex-wrap" style="bottom: 10px; left: 0;">
-									<a href="#" class="text-white me-3 link-hover"><i class="fa fa-clock"></i> 06 minute read</a>
-									<a href="#" class="text-white me-3 link-hover"><i class="fa fa-eye"></i> 3.5k Views</a>
-									<a href="#" class="text-white me-3 link-hover"><i class="fa fa-comment-dots"></i> 05 Comment</a>
-									<a href="#" class="text-white link-hover"><i class="fa fa-arrow-up"></i> 1.5k Share</a>
+					if (in_array($id, [0, 1, 2, 3])) : ?>
+						<?php if ($id == 0) : ?>
+							<a href="<?= get_permalink($post_data->ID) ?>">
+								<div class="position-relative overflow-hidden rounded">
+									<img src="<?= $img ?>" class="img-fluid rounded img-zoomin w-100 m-h-500" alt="<?= $post_data->post_title ?>">
+									<div class="d-flex justify-content-center px-4 position-absolute flex-wrap" style="bottom: 10px; left: 0;">
+										<p class="text-white me-3 link-hover"><i class="fa fa-clock"></i> 06 minute read</p>
+										<p class="text-white me-3 link-hover"><i class="fa fa-eye"></i> 3.5k Views</p>
+										<p class="text-white me-3 link-hover"><i class="fa fa-comment-dots"></i> 05 Comment</p>
+										<p class="text-white link-hover"><i class="fa fa-arrow-up"></i> 1.5k Share</p>
+									</div>
 								</div>
-							</div>
-							<div class="border-bottom py-3">
-								<a href="<?= get_permalink($post_data->ID) ?>" class="display-6 text-dark mb-0 link-hover"><?= $post_data->post_title ?></a>
-							</div>
-							<p class="mt-3 mb-4"><?= get_first_text($post_data->ID, 200) ?></p>
-						<?php elseif (in_array($id, [1])) : ?>
-
+								<div class="border-bottom py-3">
+									<p class="display-6 text-dark mb-0 link-hover"><?= $post_data->post_title ?></p>
+								</div>
+								<p class="mt-3 mb-4"><?= get_first_text($post_data->ID, 220) ?></p>
+							</a>
 							<div class="bg-light p-4 rounded">
 								<div class="news-2">
 									<h5 class="mb-4">Bài nổi bật</h5>
 								</div>
 								<div class="row g-4 align-items-center">
-									<div class="col-md-5">
+								<?php elseif (in_array($id, [1, 2, 3])) : ?>
+									<div class="col-md-4">
 										<div class="rounded overflow-hidden">
-											<img src="<?= $img ?>" class="img-fluid rounded img-zoomin w-100" alt="<?= $post_data->post_title ?>">
+											<img src="<?= $img ?>" class="img-fluid rounded img-zoomin w-100 m-h-174" alt="<?= $post_data->post_title ?>">
 										</div>
 									</div>
-									<div class="col-md-7">
+									<div class="col-md-8">
 										<div class="d-flex flex-column">
 											<a href="<?= get_permalink($post_data->ID) ?>" class="h5"><?= $post_data->post_title ?></a>
-											<p class="mb-0"><i class="fa fa-clock"> 06 minute read</i> </p>
-											<p class="mb-0"><i class="fa fa-eye"> 3.5k Views</i></p>
+											<p><?= get_first_text($post_data->ID, 130) ?></p>
+											<a style="margin-top: -13px;" href="">
+												<img src="https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/434328087_2557841507726380_7528039624968605877_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ch1pOlfQJdcAb5NYNgy&_nc_ht=scontent-nrt1-1.xx&oh=00_AfD5t21k9CSieC8fqqQcgoXTYrlu41reEVooq4cxj2NF8w&oe=6622AD50" alt="mdo" width="26" height="26" class="rounded-circle d-inline border border-2 border-primary">
+												<p class="text-body d-inline">Bui Tuan Anh</p>
+											</a>
 										</div>
 									</div>
+						<?php endif;
+						endif;
+					endforeach; ?>
 								</div>
 							</div>
-				<?php endif;
-					endif;
-				endforeach; ?>
 			</div>
 
 
 			<div class="col-lg-5 col-xl-4">
 				<div class="bg-light rounded p-4 pt-0">
 					<div class="row g-4">
-						<div class="col-12">
-							<div class="rounded overflow-hidden">
-								<img src="img/news-3.jpg" class="img-fluid rounded img-zoomin w-100" alt="">
-							</div>
-						</div>
-						<div class="col-12">
-							<div class="d-flex flex-column">
-								<a href="#" class="h4 mb-2">Get the best speak market, news.</a>
-								<p class="fs-5 mb-0"><i class="fa fa-clock"> 06 minute read</i> </p>
-								<p class="fs-5 mb-0"><i class="fa fa-eye"> 3.5k Views</i></p>
-							</div>
-						</div>
-						<div class="col-12">
-							<div class="row g-4 align-items-center">
-								<div class="col-5">
-									<div class="overflow-hidden rounded">
-										<img src="img/news-3.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
+						<?php $dts = array_slice($post_datas->posts, 4);
+						foreach ($dts as $id => $post_data) :
+							$img = get_the_post_thumbnail_url($post_data->ID, 'large');
+							$img = $img ? $img : '/assets/img/no_img.png'; ?>
+							<?php if ($id == 0) : ?>
+								<a href="">
+									<div class="col-12">
+										<div class="rounded overflow-hidden">
+											<img src="img/news-3.jpg" class="img-fluid rounded img-zoomin w-100" alt="">
+										</div>
+									</div>
+									<div class="col-12">
+										<div class="d-flex flex-column">
+											<p class="h4"><?= $post_data->post_title ?></p>
+											<p><?= get_first_text($post_data->ID, 130) ?></p>
+											<a style="margin-top: -13px;" href="">
+												<img src="https://scontent-nrt1-1.xx.fbcdn.net/v/t39.30808-6/434328087_2557841507726380_7528039624968605877_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ch1pOlfQJdcAb5NYNgy&_nc_ht=scontent-nrt1-1.xx&oh=00_AfD5t21k9CSieC8fqqQcgoXTYrlu41reEVooq4cxj2NF8w&oe=6622AD50" alt="mdo" width="26" height="26" class="rounded-circle d-inline border border-2 border-primary">
+												<p class="text-body d-inline">Bui Tuan Anh</p>
+											</a>
+										</div>
+									</div>
+								</a>
+							<?php else : ?>
+
+								<div class="col-12">
+									<div class="row g-4 align-items-center">
+										<div class="col-5">
+											<div class="overflow-hidden rounded">
+												<img src="img/news-7.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
+											</div>
+										</div>
+										<div class="col-7">
+											<div class="features-content d-flex flex-column">
+												<a href="#" class="h6">Get the best speak market, news.</a>
+												<small><i class="fa fa-clock"> 06 minute read</i> </small>
+												<small><i class="fa fa-eye"> 3.5k Views</i></small>
+											</div>
+										</div>
 									</div>
 								</div>
-								<div class="col-7">
-									<div class="features-content d-flex flex-column">
-										<a href="#" class="h6">Get the best speak market, news.</a>
-										<small><i class="fa fa-clock"> 06 minute read</i> </small>
-										<small><i class="fa fa-eye"> 3.5k Views</i></small>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-12">
-							<div class="row g-4 align-items-center">
-								<div class="col-5">
-									<div class="overflow-hidden rounded">
-										<img src="img/news-4.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-									</div>
-								</div>
-								<div class="col-7">
-									<div class="features-content d-flex flex-column">
-										<a href="#" class="h6">Get the best speak market, news.</a>
-										<small><i class="fa fa-clock"> 06 minute read</i> </small>
-										<small><i class="fa fa-eye"> 3.5k Views</i></small>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-12">
-							<div class="row g-4 align-items-center">
-								<div class="col-5">
-									<div class="overflow-hidden rounded">
-										<img src="img/news-5.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-									</div>
-								</div>
-								<div class="col-7">
-									<div class="features-content d-flex flex-column">
-										<a href="#" class="h6">Get the best speak market, news.</a>
-										<small><i class="fa fa-clock"> 06 minute read</i> </small>
-										<small><i class="fa fa-eye"> 3.5k Views</i></small>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-12">
-							<div class="row g-4 align-items-center">
-								<div class="col-5">
-									<div class="overflow-hidden rounded">
-										<img src="img/news-6.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-									</div>
-								</div>
-								<div class="col-7">
-									<div class="features-content d-flex flex-column">
-										<a href="#" class="h6">Get the best speak market, news.</a>
-										<small><i class="fa fa-clock"> 06 minute read</i> </small>
-										<small><i class="fa fa-eye"> 3.5k Views</i></small>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-12">
-							<div class="row g-4 align-items-center">
-								<div class="col-5">
-									<div class="overflow-hidden rounded">
-										<img src="img/news-7.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-									</div>
-								</div>
-								<div class="col-7">
-									<div class="features-content d-flex flex-column">
-										<a href="#" class="h6">Get the best speak market, news.</a>
-										<small><i class="fa fa-clock"> 06 minute read</i> </small>
-										<small><i class="fa fa-eye"> 3.5k Views</i></small>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-12">
-							<div class="row g-4 align-items-center">
-								<div class="col-5">
-									<div class="overflow-hidden rounded">
-										<img src="img/news-7.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-									</div>
-								</div>
-								<div class="col-7">
-									<div class="features-content d-flex flex-column">
-										<a href="#" class="h6">Get the best speak market, news.</a>
-										<small><i class="fa fa-clock"> 06 minute read</i> </small>
-										<small><i class="fa fa-eye"> 3.5k Views</i></small>
-									</div>
-								</div>
-							</div>
-						</div>
+						<?php endif;
+						endforeach; ?>
+
+
 					</div>
 				</div>
 			</div>
@@ -288,7 +228,7 @@ get_header(null, ['head' => $head]);
 				<p class="text-dark mb-4 pb-2">
 					Tạo Tài Khoản để làm những bài thi JLPT các năm (Bao gồm bài Nghe).
 					Chức năng chữa lỗi sai sau khi làm bài sẽ giúp bạn học dễ dàng và hiệu quả hơn.
-					Ngoài ra hãy cùng mình viết chia sẻ kinh nghiệm hay bài thảo luận về 1 vấn đề bất kì nào nhé.
+					Ngoài ra hãy cùng mình viết chia sẻ kinh nghiệm hay cùng thảo luận về 1 vấn đề bất kì nào nhé.
 				</p>
 				<div class="text-center">
 					<button class="btn btn-primary btn btn-success py-3 px-5 text-white">TẠO TÀI KHOẢN</button>
@@ -1255,6 +1195,6 @@ get_header(null, ['head' => $head]);
 		</div>
 	</div>
 </div>
-<!-- Most Populer News End --
+
 
 <?php get_footer(); ?>
